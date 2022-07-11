@@ -1,0 +1,28 @@
+@prefix rdfp: <http://xubai.wang/rdfp#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# `print` functions (without detail)
+<#display>    rdf:type rdfp:Function .
+<#displayln>  rdf:type rdfp:Function .
+
+# `main` function
+<#main>
+  rdf:type rdfp:MainFn;
+  rdfp:fnBody (
+    [
+      rdf:type rdfp:FnApp;
+      rdfp:appFn rdfp:display;
+      rdfp:args (
+        "Hello, "
+      )
+    ]
+    [
+      rdftype rdfp:FnApp;
+      rdfp:appFn rdfp:displayln;
+      rdfp:args (
+        "rdfp!"
+      )
+    ]
+  ) .
+
+# => Hello, rdfp!
